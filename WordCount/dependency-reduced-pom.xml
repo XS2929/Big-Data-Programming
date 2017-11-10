@@ -109,6 +109,10 @@
           <groupId>commons-collections</groupId>
         </exclusion>
         <exclusion>
+          <artifactId>servlet-api</artifactId>
+          <groupId>javax.servlet</groupId>
+        </exclusion>
+        <exclusion>
           <artifactId>jetty</artifactId>
           <groupId>org.mortbay.jetty</groupId>
         </exclusion>
@@ -131,6 +135,10 @@
         <exclusion>
           <artifactId>jersey-server</artifactId>
           <groupId>com.sun.jersey</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>log4j</artifactId>
+          <groupId>log4j</groupId>
         </exclusion>
         <exclusion>
           <artifactId>jets3t</artifactId>
@@ -187,6 +195,10 @@
         <exclusion>
           <artifactId>curator-recipes</artifactId>
           <groupId>org.apache.curator</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jsr305</artifactId>
+          <groupId>com.google.code.findbugs</groupId>
         </exclusion>
         <exclusion>
           <artifactId>htrace-core</artifactId>

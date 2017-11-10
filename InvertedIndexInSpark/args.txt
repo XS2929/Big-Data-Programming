@@ -1,0 +1,1 @@
+./bin/spark-submit --class "com.refactorlabs.cs378.assign10.InvertedIndexInSpark" --master local[1] /Users/xs/Desktop/InvertedIndexInSpark/target/bdp-spark-0.9.jar dataSet10.txt /Users/xs/Desktop/17fall/CS378/spark-2.2.0-bin-hadoop2.7/output/assign10

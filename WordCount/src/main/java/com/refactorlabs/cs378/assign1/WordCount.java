@@ -23,7 +23,7 @@ import java.util.StringTokenizer;
 /**
  * Example MapReduce program that performs word count.
  *
- * @author BULBASAUR
+ * @author David Franke (dfranke@cs.utexas.edu)
  */
 public class WordCount extends Configured implements Tool {
 
@@ -43,22 +43,17 @@ public class WordCount extends Configured implements Tool {
 		@Override
 		public void map(LongWritable key, Text value, Context context)
 				throws IOException, InterruptedException {
-			String[] headers = {"user_id","event_type","event_timestamp","city","vin","vehicle_condition","year", "make","model","trim","body_style","cab_style","price","mileage","free_carfax_report","features"};
 			String line = value.toString();
-			String[] stringArray = line.replace("\t\t","\tnull\t").split("\t");
-			String[] stringArray1 = stringArray[stringArray.length-1].split(":");
+			StringTokenizer tokenizer = new StringTokenizer(line);
 
 			context.getCounter(Utils.MAPPER_COUNTER_GROUP, "Input Lines").increment(1L);
-			for (int i = 0; i < stringArray.length-1; i++ ){
-				if(!(i==0||i==2||i==13|i==12||i==4))
-					context.write(new Text(headers[i]+":"+stringArray[i]), Utils.WRITABLE_ONE);
+
+			// For each word in the input line, emit a count of 1 for that word.
+			while (tokenizer.hasMoreTokens()) {
+				word.set(tokenizer.nextToken());
+				context.write(word, Utils.WRITABLE_ONE);
+				context.getCounter(Utils.MAPPER_COUNTER_GROUP, "Words Out").increment(1L);
 			}
-			if (!stringArray1[0].equals("null")){
-				for (int i = 0; i < stringArray1.length; i++ )
-					context.write(new Text("feature:"+Integer.toString(i)+" "+stringArray1[i]), Utils.WRITABLE_ONE);
-			}	
-			context.getCounter(Utils.MAPPER_COUNTER_GROUP, "Words Out").increment(1L);
-			
 		}
 	}
 
@@ -111,7 +106,7 @@ public class WordCount extends Configured implements Tool {
 		job.setOutputFormatClass(TextOutputFormat.class);
 
 		// Grab the input file and output directory from the command line.
-		FileInputFormat.addInputPaths(job, appArgs[0]);
+		FileInputFormat.addInputPath(job, new Path(appArgs[0]));
 		FileOutputFormat.setOutputPath(job, new Path(appArgs[1]));
 
 		// Initiate the map-reduce job, and wait for completion.
