@@ -28,23 +28,3 @@ Print ISBN: 978-1-4493-5862-4 | ISBN 10: 1-4493-5862-4
 Recommended: Hadoop: The Definitive Guide, 4th Edition, by Tom White
 O'Reilly Media/Yahoo Press
 Print ISBN: 978-1-4919-0163-2 | ISBN 10: 1-4919-0163-2
- 
-Instructor
-
-David Franke 
-Email: dfranke at cs.utexas.edu 
-Office: GDC 6.402 
-Office Hours:
-
-T 11:00 AM - 12:00 PM
-Th 12:30 PM - 1:30 PM
-Or by appointment
- 
-TA
-
-Vivek Pradhan 
-Email: vivek.k.pradhan at utexas.edu 
-Office: GDC 1.302, Desk 2 
-Office Hours:
-
-M 2:15 PM - 3:30 PM
