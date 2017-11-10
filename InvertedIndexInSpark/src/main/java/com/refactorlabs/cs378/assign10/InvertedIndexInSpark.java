@@ -34,28 +34,25 @@ public class InvertedIndexInSpark {
             String[] record1 = s1.split(":");
             String[] record2 = s2.split(":");
             //compare first field
-            if(record1[0].compareTo(record2[0]) != 0)
+            if(!record1[0].equals(record2[0]))
                 return record1[0].compareTo(record2[0]);
-            else{
-                //compare second field
-                if(record1[1].compareTo(record2[1]) != 0){
-                    if(Integer.parseInt(record1[1]) > Integer.parseInt(record2[1]))
-                        return 1;
-                    else
-                        return -1;
+
+            if(!record1[1].equals(record2[1])){
+                if(Integer.parseInt(record1[1]) > Integer.parseInt(record2[1]))
+                    return 1;
+                else
+                    return -1;
                 }
-                //compare third field
-                else{
-                    if(Integer.parseInt(record1[2]) > Integer.parseInt(record2[2]))
-                        return 1;
-                    else if(Integer.parseInt(record1[2]) < Integer.parseInt(record2[2]))
-                        return -1;
-                    else 
-                        return 0;
-                }
-            }
+            //compare third field
+            if(Integer.parseInt(record1[2]) > Integer.parseInt(record2[2]))
+                return 1;
+            else if(Integer.parseInt(record1[2]) < Integer.parseInt(record2[2]))
+                return -1;
+            else 
+                return 0;
         }
     }
+
 
 	public static void main(String[] args) {
 
