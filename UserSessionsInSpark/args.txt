@@ -1,0 +1,1 @@
+./bin/spark-submit --class "com.refactorlabs.cs378.assign11.UserSessionsInSpark" --master local[1] /Users/xs/Desktop/UserSessionsInSpark/target/bdp-spark-0.9.jar dataSet5a.tsv,dataSet5b.tsv output/assign11
