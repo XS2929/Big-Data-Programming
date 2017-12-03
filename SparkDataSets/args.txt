@@ -1,0 +1,1 @@
+./bin/spark-submit --class "com.refactorlabs.cs378.assign12.SparkDataSets" --master local[1] /Users/xs/Desktop/SparkDataSets/target/bdp-spark-0.9.jar dataSet12.csv output/assign12
